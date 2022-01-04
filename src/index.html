@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>move test</title>
+    <style>
+        * { margin:0; }
+        div { width:100px; height:100px; background:blue; filter:alpha(opacity=30); margin-top:10px; position:absolute; left:0; }
+        #div1 { top:20px; }
+        #div2 { top:140px; }
+        #div3 { top:260px; }
+    </style>
+</head>
+<body>
+<input type="button" id="btn1" value="开始运动">
+<div id="div1">匀速运动</div>
+<script src="./js/move.js"></script>
+<script>
+    window.onload = function() {
+        var aDiv = document.getElementsByTagName("div")
+            oBtn = document.getElementById("btn1");
+        oBtn.onclick = function() {
+            startMove(aDiv[0], { "width": 200, "height": 200 }, "linear", 20, function() {
+                this.innerHTML = "DONE!";
+            });
+        }
+    }
+</script>
+</body>
+</html>
